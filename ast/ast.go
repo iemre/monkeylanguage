@@ -63,6 +63,15 @@ func (ls *LetStatement) String() string {
 	return out.String()
 }
 
+type IntegerLiteral struct {
+	Token token.Token
+	Value int64
+}
+
+func (il *IntegerLiteral) expressionNode()      {}
+func (il *IntegerLiteral) TokenLiteral() string { return il.Token.Literal }
+func (il *IntegerLiteral) String() string       { return il.Token.Literal }
+
 type Identifier struct {
 	Token token.Token
 	Value string
